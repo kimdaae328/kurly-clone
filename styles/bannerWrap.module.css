@@ -1,0 +1,42 @@
+/* 공통으로 빼기 */
+.in {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+.bannerTitleWrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.banerTitle {
+    display: flex;
+    color: rgb(51, 51, 51);
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.banerTitle:after {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 32px;
+    background-image: url(https://res.cloudinary.com/dpr8m7xge/image/upload/v1715842873/h7zqrrg9h92lsrueun8l.svg)
+}
+
+.bannerInfo {
+    display: block;
+    margin: 10px 0 30px;
+    font-size: 16px;
+    color: rgb(153, 153, 153);
+}
+
+.bannerList {
+    display: flex;
+    gap: 20px;
+}
+
+.bannerList li {
+    width: 100%;
+}

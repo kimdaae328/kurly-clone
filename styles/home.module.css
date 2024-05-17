@@ -1,0 +1,18 @@
+
+.minibanner {
+    width: 1050px;
+    margin: 0 auto;
+    padding: 40px 0px;
+}
+
+.mainBannerLayout {
+    margin-bottom: 40px;
+}
+
+.bannerLayout {
+    padding: 40px 0px;
+}
+
+.specialBannerLayout > div {
+    padding: 80px 0;
+}

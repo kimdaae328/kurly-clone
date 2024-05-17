@@ -1,0 +1,153 @@
+/* 공통으로 빼기 */
+.in {
+    width: 1050px;
+    margin: 0 auto;
+}
+
+.header {
+    font-size: 16px;
+}
+
+.searchArea {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    width: 100%;
+    padding: 15px 0;
+}
+
+.logoArea {
+    display: flex;
+    align-items: center;
+}
+
+.logoArea h1 {
+    margin-right: 20px;
+}
+
+.loginArea {
+    display: flex;
+    justify-content: end;
+    padding: 15px 0;
+    font-size: 12px;
+}
+
+.loginArea li {
+    position: relative;
+    padding: 0 10px;
+}
+
+.loginArea li:not(:first-child):after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 1px;
+    height: 13px;
+    background-color: rgb(217, 217, 217);
+    transform: translateY(-50%);
+}
+
+.home {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(95, 0, 128);
+}
+
+.searchInput {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.searchInput input {
+    width: 400px;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid rgb(95, 0, 128);
+    border-radius: 6px;
+}
+
+.menuItems {
+    display: flex;
+    align-items: center;
+}
+
+.menuItems li {
+    padding: 0 10px;
+}
+
+.menuItems li a {
+    display: block;
+    width: 36px;
+    height: 36px;
+    text-indent: -999rem;
+}
+
+.menuItems .location {
+    background-image: url(https://res.cloudinary.com/dpr8m7xge/image/upload/v1715836345/r1azrhlpn9gjkcddd6vj.svg);
+}
+
+.menuItems .favorite {
+    background-image: url(https://res.cloudinary.com/dpr8m7xge/image/upload/v1715836345/wxxlpw5kw5iaylmmfmsq.svg);
+}
+
+.menuItems .cart {
+    background-image: url(https://res.cloudinary.com/dpr8m7xge/image/upload/v1715836345/meuidqq0kr6eyqvyfuze.svg);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav .categoryArea {
+    display: flex;
+    align-items: center;
+}
+
+.nav .categoryArea {}
+
+.nav .category {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    font-size: 16px;
+}
+
+.nav .category:before {
+    content: '';
+    display: block;
+    width: 16px;
+    height: 14px;
+    margin-right: 13px;
+    background-image: url(https://res.cloudinary.com/dpr8m7xge/image/upload/v1715840626/gt0r4urkmjnrc2qan1hn.svg);
+}
+
+.nav .list {
+    display: flex;
+    font-size: 16px;
+}
+
+.nav .list li a {
+    display: block;
+    padding: 15px 55px;
+}
+
+.nav .delivery {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 6px 16px;
+    border-radius: 18px;
+    border: 1px solid rgb(238, 238, 238);
+    color: rgb(102, 102, 102);
+    font-size: 13px;
+}
+
+.nav .delivery span {
+    font-weight: 500;
+    color: rgb(95, 0, 128);
+}

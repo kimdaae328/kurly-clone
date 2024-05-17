@@ -1,0 +1,81 @@
+.loginArea {
+    min-width: 1050px;
+    margin: 90px auto;
+    text-align: center;
+}
+
+.loginTitle {
+    text-align: center;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.loginForm {
+    width: 340px;
+    margin: 30px auto;
+}
+
+.loginForm input {
+    width: 100%;
+    height: 54px;
+    margin-top: 10px;
+    padding: 0px 11px 1px 15px;
+    font-size: 14px;
+    border-radius: 4px;
+    color: rgb(51, 51, 51);
+    border: 1px solid rgb(221, 221, 221);
+}
+
+.loginForm input::placeholder {
+    color: #333;
+}
+
+.searchBtn {
+    display: flex;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    margin-top: 10px;
+    font-size: 13px;
+}
+.searchBtn button {
+    position: relative;
+    padding: 0 8px;
+}
+
+.searchBtn button:not(:first-child):before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 10px;
+    background-color: #333;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.loginBtn {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.loginBtn button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    height: 54px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+  }
+  
+.loginBtn button.line {
+    color: #5f0080;
+    border: 1px solid #5f0080;
+}
+
+.loginBtn button.color {
+    color: #fff;
+    background-color: var(--button-color); 
+}
