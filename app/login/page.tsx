@@ -1,19 +1,6 @@
 import React from 'react';
 import styles from '../../styles/login.module.css';
 
-function Button({ children, line, color }) {
-  const buttonStyle = {
-    backgroundColor: color || 'initial',
-    border: line ? '1px solid #5f0080' : 'none',
-  };
-
-  return (
-    <button style={buttonStyle}>
-      {children}
-    </button>
-  );
-}
-
 export default function Login() {
   return (
     <div className={styles.loginArea}>
