@@ -25,7 +25,7 @@ const BannerWrap: React.FC<BannerWrapProps> = ({ bannerTitle, bannerInfo, banner
       <ul className={styles.bannerList}>
         {bannerItems.map((item, index) => (
           <li key={index}>
-            <BannerItem itemTitle={item.itemTitle} btnTitle={item.btnTitle} />
+            <BannerItem height="350px" itemTitle={item.itemTitle} btnTitle={item.btnTitle} />
           </li>
         ))}
       </ul>
