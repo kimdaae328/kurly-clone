@@ -1,7 +1,13 @@
 import React from 'react'
 import styles from '../../styles/bannerItem.module.css'
 
-export default function BannerItem({ height, itemTitle, btnTitle }) {
+interface BannerItemProps {
+  height: string;
+  itemTitle: string;
+  btnTitle: string;
+}
+
+export default function BannerItem({ height, itemTitle, btnTitle }: BannerItemProps) {
   return (
     <div>
       <div className={styles.productImg} style={{ height }}>
