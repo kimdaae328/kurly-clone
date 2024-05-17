@@ -9,7 +9,7 @@ interface BannerSpecialPriceProps {
   itemTitles?: string[];
 }
 
-const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ timeTitle, timeSubtitle, itemCount = 1, itemTitles = [] }) => {
+const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ timeTitle, timeSubtitle, itemTitles = [] }) => {
   return (
     <div className={styles.in}>
       <div className={styles.bannerSpecialPrice}>
@@ -18,8 +18,6 @@ const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ timeTitle, time
           <span className={styles.specialInfo}>{timeSubtitle}</span>
 
           <div className={styles.timeArea}>
-            {/* <div className={styles.lottieTimer}>
-                    </div> */}
             <span className={styles.timeUnits}>09:41:49</span>
           </div>
 
@@ -27,9 +25,9 @@ const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ timeTitle, time
         </div>
 
         <div className={styles.bannerItem}>
-          {[...Array(itemCount)].map((_, index) => (
-            <BannerItem key={index} height="350px" itemTitle={itemTitles[index] || ''} />
-          ))}
+            {itemTitles.map((title, index) => (
+                <BannerItem key={index} height="350px" itemTitle={title} btnTitle="담기" />
+            ))}
         </div>
       </div>
     </div>

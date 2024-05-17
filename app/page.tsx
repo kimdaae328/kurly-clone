@@ -20,11 +20,6 @@ import Link from "next/link";
     { itemTitle: "타이틀8", btnTitle: "담기" }
   ];
 
-  const bannerItems3 = [
-    { itemTitle: "12222", btnTitle: "5555" },
-    { itemTitle: "23123123", btnTitle: "5555" },
-  ];
-
 const Home: React.FC = () => {
   return (
     <div className={styles.wrap}>
