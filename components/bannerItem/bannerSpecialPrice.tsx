@@ -1,0 +1,30 @@
+import React from 'react'
+import styles from '../../styles/bannerSpecialPrice.module.css'
+import BannerItem from './bannerItem'
+
+export default function BannerSpecialPrice({ timeTitle, timeSubtitle, itemCount = 1, itemTitles = [] }) {
+  return (
+    <div className={styles.in}>
+        <div className={styles.bannerSpecialPrice}>
+            <div className={styles.bannerTimeArea}>
+                <span className={styles.title}>{timeTitle}</span>
+                <span className={styles.specialInfo}>{timeSubtitle}</span>
+
+                <div className={styles.timeArea}>
+                    {/* <div className={styles.lottieTimer}>
+                    </div> */}
+                    <span className={styles.timeUnits}>09:41:49</span>
+                </div>
+
+                <span className={styles.specialTip}>망설이면 늦어요!</span>
+            </div>
+
+            <div className={styles.bannerItem}>
+                {[...Array(itemCount)].map((_, index) => (
+                    <BannerItem key={index} height="350px" itemTitle={itemTitles[index] || ''}/>
+                ))}
+            </div>
+        </div>
+    </div>
+  )
+}
