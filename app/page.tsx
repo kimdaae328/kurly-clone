@@ -5,7 +5,7 @@ import BannerWrap from "../components/bannerItem/bannerwrap";
 import BannerSpecialPrice from "../components/bannerItem/bannerSpecialPrice";
 import Link from "next/link";
 
-export default function Home() {
+  
   const bannerItems1 = [
     { itemTitle: "타이틀1", btnTitle: "담기" },
     { itemTitle: "타이틀2", btnTitle: "담기" },
@@ -25,6 +25,7 @@ export default function Home() {
     { itemTitle: "23123123", btnTitle: "5555" },
   ];
 
+const Home: React.FC = () => {
   return (
     <div className={styles.wrap}>
       <div className={styles.mainBannerLayout}>
@@ -66,3 +67,5 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
