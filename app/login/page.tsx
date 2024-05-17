@@ -1,7 +1,13 @@
 import React from 'react';
 import styles from '../../styles/login.module.css';
 
-function Button({ children, line, color }) {
+interface ButtonProps {
+  children: ReactNode;
+  line?: boolean;
+  color?: string;
+}
+
+function Button({ children, line, color } : ButtonProps) {
   const buttonStyle = {
     backgroundColor: color || 'initial',
     border: line ? '1px solid #5f0080' : 'none',
