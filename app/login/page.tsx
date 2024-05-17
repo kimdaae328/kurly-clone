@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode, CSSProperties } from 'react';
 import styles from '../../styles/login.module.css';
 
 interface ButtonProps {
@@ -8,7 +8,7 @@ interface ButtonProps {
 }
 
 function Button({ children, line, color } : ButtonProps) {
-  const buttonStyle = {
+  const buttonStyle: CSSProperties = {
     backgroundColor: color || 'initial',
     border: line ? '1px solid #5f0080' : 'none',
   };
