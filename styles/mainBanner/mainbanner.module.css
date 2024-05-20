@@ -12,3 +12,19 @@
     transform: translateX(-50%);
     object-fit: cover;
 }
+
+.sliderContainer {
+    border: 1px solid blue;
+}
+
+.slickSlider {
+    height: 370px;
+}
+
+.slickSlider div {
+    height: 100%;
+}
+
+.slickSlide img {
+    height: 100%;
+}

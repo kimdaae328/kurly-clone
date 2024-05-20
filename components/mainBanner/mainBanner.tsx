@@ -1,9 +1,9 @@
+"use client"
 import React from 'react'
 import styles from "../../styles/mainBanner/mainBanner.module.css";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 
 export default function Mainbanner() {
   const settings = {
@@ -16,25 +16,25 @@ export default function Mainbanner() {
 
   return (
     <div className={styles.mainbanner}>
-      {/* <img src="https://res.cloudinary.com/dpr8m7xge/image/upload/v1715841193/xt1cjirpj4t5564vwrzz.jpg" alt="" /> */}
-      <div className="slider-container">
-        <Slider {...settings}>
-          <div>
+      <div className={styles.sliderContainer}>
+        <Slider {...settings} className={styles.slickSlider}>
+          <div className={styles.slickSlide}>
+            <img src="https://res.cloudinary.com/dpr8m7xge/image/upload/v1715841193/xt1cjirpj4t5564vwrzz.jpg" alt="" />
             <h3>1</h3>
           </div>
-          <div>
+          <div className={styles.slickSlide}>
             <h3>2</h3>
           </div>
-          <div>
+          <div className={styles.slickSlide}>
             <h3>3</h3>
           </div>
-          <div>
+          <div className={styles.slickSlide}>
             <h3>4</h3>
           </div>
-          <div>
+          <div className={styles.slickSlide}>
             <h3>5</h3>
           </div>
-          <div>
+          <div className={styles.slickSlide}>
             <h3>6</h3>
           </div>
         </Slider>
