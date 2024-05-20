@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/login.module.css';
+import styles from '../../styles/login/login.module.css';
 
 export default function Login() {
   return (
@@ -16,8 +16,8 @@ export default function Login() {
         </div>
 
         <div className={styles.loginBtn}>
-            <button>로그인</button>
-            <button>회원가입</button>
+          <button>로그인</button>
+          <button>회원가입</button>
         </div>
       </form>
     </div>

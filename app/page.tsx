@@ -1,7 +1,7 @@
 import styles from "../styles/home.module.css";
 import "../styles/global.css";
-import Mainbanner from "../components/mainbanner";
-import BannerWrap from "../components/bannerItem/bannerwrap";
+import Mainbanner from "../components/mainBanner/mainBanner";
+import BannerWrap from "../components/bannerItem/bannerWrap";
 import BannerSpecialPrice from "../components/bannerItem/bannerSpecialPrice";
 import Link from "next/link";
 

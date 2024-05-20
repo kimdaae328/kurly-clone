@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/bannerWrap.module.css';
+import styles from '../../styles/bannerItem/bannerWrap.module.css';
 import Link from 'next/link';
 import BannerItem from './bannerItem';
 

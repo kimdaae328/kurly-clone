@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../../styles/bannerItem.module.css'
+import styles from '../../styles/bannerItem/bannerItem.module.css'
 
 interface BannerItemProps {
   height: string;

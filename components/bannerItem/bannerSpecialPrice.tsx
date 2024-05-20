@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../../styles/bannerSpecialPrice.module.css';
+import styles from '../../styles/bannerItem/bannerSpecialPrice.module.css';
 import BannerItem from './bannerItem';
 
 interface BannerSpecialPriceProps {
