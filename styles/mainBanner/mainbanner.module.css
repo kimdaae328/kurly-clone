@@ -13,12 +13,20 @@
     object-fit: cover;
 }
 
-.sliderContainer {
+.sliderContainer .slickPrev {
     border: 1px solid blue;
 }
 
 .slickSlider {
     height: 370px;
+}
+
+.slickSlide {
+    position: relative;
+}
+
+.slice-slice button {
+    border:1px solid blue;
 }
 
 .slickSlider div {
