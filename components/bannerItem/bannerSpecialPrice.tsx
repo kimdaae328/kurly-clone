@@ -7,6 +7,16 @@ import { Product } from '../../types/Product';
 interface BannerSpecialPriceProps {
   itemCount?: number;
 }
+interface Product {
+  id: string;
+  name: string;
+  poster: string;
+  before: number;
+  sales: number;
+  price: number;
+  review: number;
+  category: string;
+}
 
 const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ itemCount }) => {
   const bannerItems: Product[] = itemCount ? productData.slice(0, itemCount) : productData;
