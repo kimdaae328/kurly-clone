@@ -1,8 +1,18 @@
-"use client"
 import React from 'react'
 import styles from '../../styles/bannerItem/bannerItem.module.css'
 
-export default function BannerItem({ height, name, btnTitle, poster, before, sales, price, review }) {
+interface BannerItemProps {
+  height: string;
+  name: string;
+  btnTitle: string;
+  poster: string;
+  before: number;
+  sales: number;
+  price: number;
+  review: number;
+}
+
+const BannerItem: React.FC<BannerItemProps> = ({ height, name, btnTitle, poster, before, sales, price, review }) => {
   return (
     <div>
       <div className={styles.productImg} style={{ height }}>
@@ -31,3 +41,5 @@ export default function BannerItem({ height, name, btnTitle, poster, before, sal
     </div>
   )
 }
+
+export default BannerItem;
