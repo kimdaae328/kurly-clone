@@ -2,7 +2,6 @@ import React from 'react';
 import styles from '../../styles/bannerItem/bannerSpecialPrice.module.css';
 import BannerItem from './bannerItem';
 import productData from '../../api/product.json';
-import { Product } from '../../types/Product';
 
 interface BannerSpecialPriceProps {
   itemCount?: number;
