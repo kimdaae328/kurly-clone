@@ -34,7 +34,7 @@ export default function BannerWrap() {
               <BannerItem
                 height="350px"
                 name={item.name}
-                btnTitle={item.btnTitle}
+                btnTitle="내용"
                 poster={item.poster}
                 before={item.before}
                 sales={item.sales}
@@ -56,7 +56,7 @@ export default function BannerWrap() {
             <BannerItem
               height="350px"
               name={item.name}
-              btnTitle={item.btnTitle}
+              btnTitle="내용"
               poster={item.poster}
               before={item.before}
               sales={item.sales}
