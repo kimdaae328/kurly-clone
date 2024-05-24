@@ -16,7 +16,6 @@ const Home: React.FC = () => {
         <BannerWrap></BannerWrap>
       </div>
 
-
       <div className={styles.minibanner}>
         <Link href="/">
           <img src="https://res.cloudinary.com/dpr8m7xge/image/upload/v1715908718/cc8bf4dfjckacuwrx5na.png" alt="" />
@@ -24,7 +23,7 @@ const Home: React.FC = () => {
       </div>
 
       <div className={styles.specialBannerLayout}>
-        <BannerSpecialPrice itemCount={1} ></BannerSpecialPrice>
+        <BannerSpecialPrice itemCount={2} ></BannerSpecialPrice>
       </div>
 
       <div className={styles.minibanner}>
