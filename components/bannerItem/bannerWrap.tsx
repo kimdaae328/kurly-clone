@@ -1,3 +1,4 @@
+"use client"
 import React from 'react';
 import styles from '../../styles/bannerItem/bannerWrap.module.css';
 import Link from 'next/link';
@@ -6,18 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-interface BannerItemProps {
-  itemTitle: string;
-  btnTitle: string;
-}
-
-interface BannerWrapProps {
-  bannerTitle: string;
-  bannerInfo: string;
-  bannerItems: BannerItemProps[];
-}
-
-const BannerWrap: React.FC<BannerWrapProps> = ({ bannerTitle, bannerInfo, bannerItems }) => {
+const BannerWrap = ({ bannerTitle, bannerInfo, bannerItems }) => {
   const settings = {
     dots: true,
     infinite: true,
@@ -33,15 +23,13 @@ const BannerWrap: React.FC<BannerWrapProps> = ({ bannerTitle, bannerInfo, banner
         <span className={styles.bannerInfo}>{bannerInfo}</span>
       </div>
 
-      <ul className={styles.bannerList}>
-        {/* <Slider {...settings}> */}
+      <Slider {...settings} className={styles.bannerList}>
         {bannerItems.map((item, index) => (
-            <li key={index}>
-              <BannerItem height="350px" itemTitle={item.itemTitle} btnTitle={item.btnTitle} />
-            </li>
+          <div className={styles.bannerItem}>
+            <BannerItem height="350px" itemTitle={item.itemTitle} btnTitle={item.btnTitle} />
+          </div>
         ))}
-        {/* </Slider> */}
-      </ul>
+      </Slider>
     </div>
   );
 };
