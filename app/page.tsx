@@ -7,17 +7,17 @@ import Link from "next/link";
 
   
   const bannerItems1 = [
-    { itemTitle: "타이틀1", btnTitle: "담기" },
-    { itemTitle: "타이틀2", btnTitle: "담기" },
-    { itemTitle: "타이틀3", btnTitle: "담기" },
-    { itemTitle: "타이틀4", btnTitle: "담기" }
+    { name: "타이틀1", btnTitle: "담기" },
+    { name: "타이틀2", btnTitle: "담기" },
+    { name: "타이틀3", btnTitle: "담기" },
+    { name: "타이틀4", btnTitle: "담기" }
   ];
 
   const bannerItems2 = [
-    { itemTitle: "타이틀5", btnTitle: "담기" },
-    { itemTitle: "타이틀6", btnTitle: "담기" },
-    { itemTitle: "타이틀7", btnTitle: "담기" },
-    { itemTitle: "타이틀8", btnTitle: "담기" }
+    { name: "타이틀5", btnTitle: "담기" },
+    { name: "타이틀6", btnTitle: "담기" },
+    { name: "타이틀7", btnTitle: "담기" },
+    { name: "타이틀8", btnTitle: "담기" }
   ];
 
 const Home: React.FC = () => {
@@ -28,12 +28,9 @@ const Home: React.FC = () => {
       </div>
       
       <div className={styles.bannerLayout}>
-        <BannerWrap bannerTitle="🛒지금 가장 많이 담는 특가" bannerInfo="컬리 추천 특가템 최대 30%" bannerItems={bannerItems1}></BannerWrap>
+        <BannerWrap></BannerWrap>
       </div>
 
-      <div className={styles.bannerLayout}>
-        <BannerWrap bannerTitle="🏅뷰컬페에서 가장 인기있어요" bannerInfo="지금 뷰티컬리는 최대 85% 빅세일 중!" bannerItems={bannerItems2}></BannerWrap>
-      </div>
 
       <div className={styles.minibanner}>
         <Link href="/">
