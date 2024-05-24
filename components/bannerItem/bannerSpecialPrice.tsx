@@ -4,8 +4,6 @@ import BannerItem from './bannerItem';
 import productData from '../../api/product.json';
 
 interface BannerSpecialPriceProps {
-  timeTitle: string;
-  timeSubtitle: string;
   itemCount?: number;
 }
 
