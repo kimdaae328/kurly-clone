@@ -43,29 +43,29 @@ export default function BannerWrap() {
               />
             </div>
           ))}
-        </Slider>
+      </Slider>
 
-        <div className={styles.bannerSection}>
-        <div className={styles.bannerTitleWrap}>
-          <Link href="/" className={styles.bannerTitle}>🏅뷰컬페에서 가장 인기있어요</Link>
-          <span className={styles.bannerInfo}>지금 뷰티컬리는 최대 85% 빅세일 중!</span>
-        </div>
-        <Slider {...settings} className={styles.bannerList}>
-          {beautyItems.map((item, index) => (
-            <div className={styles.bannerItem} key={index}>
-              <BannerItem
-                height="350px"
-                name={item.name}
-                btnTitle={item.btnTitle}
-                poster={item.poster}
-                before={item.before}
-                sales={item.sales}
-                price={item.price}
-                review={item.review}
-              />
-            </div>
-          ))}
-        </Slider>
+      <div className={styles.bannerSection}>
+      <div className={styles.bannerTitleWrap}>
+        <Link href="/" className={styles.bannerTitle}>🏅뷰컬페에서 가장 인기있어요</Link>
+        <span className={styles.bannerInfo}>지금 뷰티컬리는 최대 85% 빅세일 중!</span>
+      </div>
+      <Slider {...settings} className={styles.bannerList}>
+        {beautyItems.map((item, index) => (
+          <div className={styles.bannerItem} key={index}>
+            <BannerItem
+              height="350px"
+              name={item.name}
+              btnTitle={item.btnTitle}
+              poster={item.poster}
+              before={item.before}
+              sales={item.sales}
+              price={item.price}
+              review={item.review}
+            />
+          </div>
+        ))}
+      </Slider>
       </div>
     </div>
   );
