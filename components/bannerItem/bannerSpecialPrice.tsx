@@ -19,7 +19,20 @@ interface Product {
 }
 
 const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ itemCount }) => {
-  const bannerItems: Product[] = itemCount ? productData.slice(0, itemCount) : productData;
+  const bannerItems: Product[] = itemCount ? productData.slice(0, itemCount).map(convertToProduct) : productData.map(convertToProduct);
+
+  function convertToProduct(item: any): Product {
+    return {
+      id: item.id,
+      name: item.name,
+      poster: item.poster,
+      before: parseFloat(item.before),
+      sales: parseFloat(item.sales),
+      price: parseFloat(item.price),
+      review: parseFloat(item.review),
+      category: item.category
+    };
+  }
 
   return (
     <div className={styles.in}>
