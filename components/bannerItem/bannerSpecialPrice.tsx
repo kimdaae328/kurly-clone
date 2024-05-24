@@ -2,13 +2,14 @@ import React from 'react';
 import styles from '../../styles/bannerItem/bannerSpecialPrice.module.css';
 import BannerItem from './bannerItem';
 import productData from '../../api/product.json';
+import { Product } from '../../types/Product';
 
 interface BannerSpecialPriceProps {
   itemCount?: number;
 }
 
 const BannerSpecialPrice: React.FC<BannerSpecialPriceProps> = ({ itemCount }) => {
-  const bannerItems = itemCount ? productData.slice(0, itemCount) : productData;
+  const bannerItems: Product[] = itemCount ? productData.slice(0, itemCount) : productData;
 
   return (
     <div className={styles.in}>
