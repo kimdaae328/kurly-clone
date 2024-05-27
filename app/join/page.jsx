@@ -23,10 +23,15 @@ export default function JoinPage() {
             <label htmlFor="passwordConfirm">비밀번호확인:</label>
             <input type="passwordConfirm" id="passwordConfirm" name="passwordConfirm" />
           </div>
-          <div>
-          <input data-testid="input-box" id="email" name="email" type="text" placeholder="예: marketkurly@kurly.com">
+          <div className={styles.joinItem}>
+            <label htmlFor="email">이메일:</label>
+            <input type="text" id="email" name="email" placeholder="예: marketkurly@kurly.com" />
+            <button className={styles.btnLine}>중복확인</button>
           </div>
-          <button type="submit" className={styles.btnLine}>주소 검색</button>
+          <div className={styles.joinItem}>
+            <label htmlFor="mobileNumber">휴대폰:</label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="숫자만 입력해주세요." />
+          </div>
         </form>
       </div>
     </div>
