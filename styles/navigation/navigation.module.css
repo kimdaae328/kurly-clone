@@ -6,6 +6,7 @@
 
 .header {
     font-size: 16px;
+    box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 4px 0px;
 }
 
 .searchArea {

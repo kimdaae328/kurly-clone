@@ -7,7 +7,7 @@ export default function Navigation() {
         <div className={styles.in}>
             <ul className={styles.loginArea}>
                 <li>
-                    <Link href="/register">회원가입</Link>
+                    <Link href="/join">회원가입</Link>
                 </li>
                 <li>
                     <Link href="/login">로그인</Link>

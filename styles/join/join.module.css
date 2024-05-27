@@ -1,0 +1,56 @@
+.content {
+    margin: 50px 0 60px;
+    min-width: 1050px;
+}
+
+.pageTitle {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 500;
+    color: #333;
+}
+
+.essential {
+    padding-bottom: 10px;
+    text-align: right;
+    font-size: 12px;
+    color: rgb(102, 102, 102);
+}
+
+.essential span {
+    color: rgb(238, 106, 123);
+}
+
+.joinFromWrap {
+    width: 640px;
+    margin: 0px auto;
+}
+
+.joinFrom {
+    border-top: 2px solid rgb(51, 51, 51)
+}
+
+.joinItem {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.joinItem label {
+    width: 139px;
+}
+
+.joinItem .btnLine {
+    width: 120px;
+}
+
+.btnLine {
+    width: 100%;
+    height: 44px;
+    padding: 0 10px;
+    text-align: center;
+    color: rgb(95, 0, 128);
+    border-radius: 4px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(95, 0, 128);
+}
