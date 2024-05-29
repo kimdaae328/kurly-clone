@@ -4,6 +4,7 @@ import Mainbanner from "../components/mainBanner/mainBanner";
 import BannerWrap from "../components/bannerItem/bannerWrap";
 import BannerSpecialPrice from "../components/bannerItem/bannerSpecialPrice";
 import Link from "next/link";
+// import "@/lib/db"
   
 const Home: React.FC = () => {
   return (
