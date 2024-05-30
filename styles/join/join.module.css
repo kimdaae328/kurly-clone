@@ -32,6 +32,7 @@
 }
 
 .joinFrom .btnColor {
+    width: 240px;
     margin: 40px auto;
 }
 
@@ -63,7 +64,7 @@
 
 .btnColor {
     display: block;
-    width: 240px;
+    width: 100%;
     height: 56px;
     padding: 0px 10px;
     text-align: center;

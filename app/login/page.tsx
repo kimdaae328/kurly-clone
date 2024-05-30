@@ -16,8 +16,8 @@ export default function Login() {
         </div>
 
         <div className={styles.loginBtn}>
-          <button>로그인</button>
-          <button>회원가입</button>
+          <button className={styles.btnColor}>로그인</button>
+          <button className={styles.btnLine}>회원가입</button>
         </div>
       </form>
     </div>
