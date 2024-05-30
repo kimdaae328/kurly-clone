@@ -4,7 +4,9 @@ CREATE TABLE "User" (
     "name" TEXT NOT NULL,
     "password" TEXT,
     "email" TEXT,
-    "phone" TEXT
+    "phone" TEXT,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL
 );
 
 -- CreateIndex
