@@ -1,0 +1,15 @@
+.inputWrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.inputWrap input {
+    flex: auto;
+}
+
+.error {
+    padding-top: 10px;
+    text-align: left;
+    color: red;
+}
