@@ -2,7 +2,7 @@ import React, { InputHTMLAttributes } from 'react';
 import styles from '../styles/input.module.css';
 
 interface FormInputProps {
-    username: string;
+    name: string;
     errors?: string[];
   }
   
