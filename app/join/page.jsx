@@ -5,6 +5,10 @@ import styles from "../../styles/join/join.module.css"
 import Input from '@/components/input';
 import { useFormState } from "react-dom";
 import { joinForm } from './actions'
+import {
+  PASSWORD_MIN_LENGTH,
+} from "@/lib/constans";
+
 
 export default function JoinPage() {
   const [state, dispatch] = useFormState(joinForm, null);
@@ -25,6 +29,8 @@ export default function JoinPage() {
               placeholder="아이디를 입력해주세요"
               required
               errors={state?.fieldErrors.username}
+              minLength={3}
+              maxLength={10}
             />
             {/* <button className={styles.btnLine}>중복확인</button> */}
           </div>
@@ -36,6 +42,7 @@ export default function JoinPage() {
               placeholder="비밀번호를 입력해주세요"
               required
               errors={state?.fieldErrors.password}
+              minLength={PASSWORD_MIN_LENGTH}
             />
           </div>
           <div className={styles.joinItem}>
@@ -46,6 +53,7 @@ export default function JoinPage() {
               placeholder="비밀번호를 확인"
               required
               errors={state?.fieldErrors.passwordConfirm}
+              minLength={PASSWORD_MIN_LENGTH}
             />
           </div>
           <div className={styles.joinItem}>

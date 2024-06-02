@@ -2,13 +2,14 @@
 import React from 'react';
 import styles from '../../styles/login/login.module.css';
 import { useFormState } from 'react-dom';
-import { handleForm } from "./actions";
-import FormButton from "@/components/Form-btn";
+import { loginForm } from "./actions";
+import FormButton from "@/components/button";
 import Input from '@/components/input';
 import Link from 'next/link';
+import { PASSWORD_MIN_LENGTH } from '@/lib/constans';
 
 export default function Login() {
-  const [state, action] = useFormState(handleForm, null);
+  const [state, action] = useFormState(loginForm, null);
 
   return (
     <div className={styles.loginArea}>
@@ -20,14 +21,15 @@ export default function Login() {
           type="text"
           placeholder="아이디를 입력해주세요"
           required
-          errors={[]}
+          errors={state?.fieldErrors.username}
         />
         <Input
           name="password"
           type="password"
           placeholder="비밀번호를 입력해주세요"
           required
-          errors={state?.errors ?? []}
+          minLength={PASSWORD_MIN_LENGTH}
+          errors={state?.fieldErrors.password}
         />
 
         <div className={styles.searchBtn}>

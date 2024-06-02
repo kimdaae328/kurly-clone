@@ -1,28 +1,21 @@
-import React from 'react';
+import React, { InputHTMLAttributes } from 'react';
 import styles from '../styles/input.module.css';
 
 interface FormInputProps {
-    type: string;
-    placeholder: string;
-    required: boolean;
-    errors: string[];
     name: string;
+    errors?: string[];
   }
   
   export default function Input({
-    type,
-    placeholder,
-    required,
-    errors = [],
     name,
-  }: FormInputProps) {
+    errors = [],
+    ...rest
+  }: FormInputProps & InputHTMLAttributes<HTMLInputElement>) {
     return (
       <div className={styles.inputWrap}>
         <input
           name={name}
-          type={type}
-          placeholder={placeholder}
-          required={required}
+          {...rest}
         />
         {errors.map((error, index) => (
           <span key={index} className={styles.error}>

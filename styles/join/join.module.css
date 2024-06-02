@@ -38,7 +38,7 @@
 
 .joinItem {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     padding: 10px 20px;
 }
 
