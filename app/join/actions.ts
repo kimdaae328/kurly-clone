@@ -19,7 +19,7 @@ const checkUniqueUsername = async (username: string) => {
       id: true,
     },
   });
-  return !Boolean(user);
+  return !user;
 }
 
 const checkUniqueEmail = async (email:string) => {
@@ -31,7 +31,7 @@ const checkUniqueEmail = async (email:string) => {
       id: true,
     },
   });
-  return Boolean(user) === false;
+  return !user;
 }
 
 const formSchema = z.object({
