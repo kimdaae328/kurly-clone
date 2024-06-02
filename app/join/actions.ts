@@ -21,7 +21,7 @@ import getSession from "@/lib/session"
 const checkUniqueUsername = async (username: string) => {
   const user = await db.user.findUnique({
     where: {
-      name : username,
+      username : username,
     },
     select: {
       id: true,
@@ -104,7 +104,7 @@ export async function joinForm(prevState: any, formData: FormData) {
 
     const user = await db.user.create({
       data: {
-        name: result.data.username,
+        username: result.data.username,
         email: result.data.email,
         password: hashedPassword
       },

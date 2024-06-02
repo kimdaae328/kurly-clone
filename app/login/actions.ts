@@ -10,7 +10,7 @@ import { redirect } from "next/navigation";
 const checkUsername = async (username:string) => {
     const user = await db.user.findUnique({
         where: {
-            name: username,
+            username: username,
         },
         select: {
             id: true,
@@ -48,7 +48,7 @@ export async function loginForm(prevState: any, formData: FormData) {
     } else {
         const user = await db.user.findUnique({
             where: {
-                name: result.data.username,
+                username: result.data.username,
             },
             select: {
                 password: true
