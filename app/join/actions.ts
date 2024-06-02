@@ -13,7 +13,7 @@ import getSession from "@/lib/session"
 const checkUniqueUsername = async (username: string) => {
   const user = await db.user.findUnique({
     where: {
-      name : username,
+      username : username,
     },
     select: {
       id: true,
