@@ -10,14 +10,6 @@ import db from "@/lib/db";
 import { redirect } from "next/navigation";
 import getSession from "@/lib/session"
 
-// const checkPasswords = ({
-//   password,
-//   passwordConfirm,
-// }: {
-//   password: string;
-//   passwordConfirm: string;
-// }) => password === passwordConfirm;
-
 const checkUniqueUsername = async (username: string) => {
   const user = await db.user.findUnique({
     where: {
