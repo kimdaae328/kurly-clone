@@ -3,7 +3,7 @@ import React from 'react';
 import styles from '../../styles/login/login.module.css';
 import { useFormState } from 'react-dom';
 import { loginForm } from "./actions";
-import FormButton from "@/components/button";
+import FormButton from '../../components/button';
 import Input from '@/components/input';
 import Link from 'next/link';
 import { PASSWORD_MIN_LENGTH } from '@/lib/constans';
@@ -39,7 +39,7 @@ export default function Login() {
 
         <div className={styles.loginBtn}>
           <FormButton text="로그인" />
-          <Link href="/join">회원가입</Link>
+          <Link href="/join" className={styles.btnLine}>회원가입</Link>
         </div>
       </form>
     </div>

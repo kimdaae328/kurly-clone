@@ -7,9 +7,8 @@ import {
   PASSWORD_REGEX_ERROR,
 } from "@/lib/constans";
 import db from "@/lib/db";
-import { getIronSession } from "iron-session";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import getSession from "@/lib/session"
 
 // const checkPasswords = ({
 //   password,
@@ -58,12 +57,12 @@ const formSchema = z.object({
       (username) => !/\d/.test(username),
       "사용자 이름에 숫자를 포함할 수 없습니다!"
     )
-    .refine(checkUniqueUsername, "This username is already taken"),
+    .refine(checkUniqueUsername, "이미 사용 중인 사용자 이름입니다"),
   email: z
     .string()
     .email("유효한 이메일 주소를 입력해주세요")
     .toLowerCase()
-    .refine(checkUniqueEmail,"There is an account already registered with that email"),
+    .refine(checkUniqueEmail,"이미 등록된 이메일 주소입니다"),
   password: z
     .string({
       required_error: "비밀번호를 입력하세요"
@@ -114,14 +113,9 @@ export async function joinForm(prevState: any, formData: FormData) {
       },
     });
 
-    // console.log(user)
-    const cookie = await getIronSession(cookies(), {
-      cookieName: "kurly",
-      password: process.env.COOKIE_PASSWORD!,
-    });
-    //@ts-ignore
-    cookie.id = user.id;
-    await cookie.save();
-    redirect("/mypage");
+    const session = await getSession();
+    session.id = user.id;
+    await session.save();
+    redirect("/");
   }
 }
