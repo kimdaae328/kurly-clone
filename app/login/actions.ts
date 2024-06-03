@@ -51,6 +51,7 @@ export async function loginForm(prevState: any, formData: FormData) {
                 username: result.data.username,
             },
             select: {
+                id: true,
                 password: true
             }
         });
@@ -60,8 +61,8 @@ export async function loginForm(prevState: any, formData: FormData) {
         );
         if(ok){
             const session = await getSession();
-            //@ts-ignore
             session.id = user!.id;
+            await session.save();
             redirect("/");
         } else {
             return {
