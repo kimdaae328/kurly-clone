@@ -60,6 +60,7 @@ export async function loginForm(prevState: any, formData: FormData) {
         );
         if(ok){
             const session = await getSession();
+            //@ts-ignore
             session.id = user!.id;
             redirect("/");
         } else {
