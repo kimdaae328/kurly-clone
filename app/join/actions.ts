@@ -10,73 +10,102 @@ import db from "@/lib/db";
 import { redirect } from "next/navigation";
 import getSession from "@/lib/session"
 
-const checkUniqueUsername = async (username: string) => {
-  const user = await db.user.findUnique({
-    where: {
-      username : username,
-    },
-    select: {
-      id: true,
-    },
-  });
-  return !user;
-}
+const checkPasswords = ({
+  password,
+  passwordConfirm,
+}: {
+  password: string;
+  passwordConfirm: string;
+}) => password === passwordConfirm;
 
-const checkUniqueEmail = async (email:string) => {
-  const user = await db.user.findUnique({
-    where: {
-      email,
-    },
-    select: {
-      id: true,
-    },
-  });
-  return !user;
-}
-
-const formSchema = z.object({
-  username: z
-    .string({
-      invalid_type_error: "사용자 이름은 문자열이어야 합니다!",
-      required_error: "사용자 이름을 입력해주세요!",
+const formSchema = z
+  .object({
+    username: z
+      .string({
+        invalid_type_error: "사용자 이름은 문자열이어야 합니다!",
+        required_error: "사용자 이름을 입력해주세요!",
+      })
+      .min(3, "사용자 이름은 최소 3자 이상이어야 합니다.")
+      .max(10, "사용자 이름은 최대 10자 이하이어야 합니다.")
+      .trim()
+      .toLowerCase()
+      // .transform((username) => `🔥 ${username}`)
+      .refine(
+        (username) => !/\d/.test(username),
+        "사용자 이름에 숫자를 포함할 수 없습니다!"
+      ),
+    email: z
+      .string()
+      .email()
+      // .email("유효한 이메일 주소를 입력해주세요")
+      .toLowerCase(),
+    password: z
+      .string({
+        required_error: "비밀번호를 입력하세요"
+      })
+      .min(PASSWORD_MIN_LENGTH),
+      // .min(PASSWORD_MIN_LENGTH, "비밀번호 확인은 최소 4자 이상이어야 합니다")
+      // .regex(
+      //   PASSWORD_REGEX, PASSWORD_REGEX_ERROR
+      // ),
+    passwordConfirm: z
+      .string({
+        required_error: "비밀번호 확인을 입력하세요"
+      })
+      .min(PASSWORD_MIN_LENGTH)
+      // .min(PASSWORD_MIN_LENGTH, "비밀번호 확인은 최소 4자 이상이어야 합니다")
+  })
+  //     .superRefine(({ password, passwordConfirm }, ctx) => {
+  //       if (password !== passwordConfirm) {
+  //         ctx.addIssue({
+  //           code: "custom",
+  //           message: "비밀번호가 일치하지 않습니다",
+  //           path: ["passwordConfirm"],
+  //         });
+  //     }
+  // })
+  .superRefine(async({username}, ctx)=>{
+    const user = await db.user.findUnique({
+      where: {
+        username
+      },
+      select: {
+        id: true,
+      },
     })
-    .min(3, "사용자 이름은 최소 3자 이상이어야 합니다.")
-    .max(10, "사용자 이름은 최대 10자 이하이어야 합니다.")
-    .trim()
-    .toLowerCase()
-    // .transform((username) => `🔥 ${username}`)
-    .refine(
-      (username) => !/\d/.test(username),
-      "사용자 이름에 숫자를 포함할 수 없습니다!"
-    )
-    .refine(checkUniqueUsername, "이미 사용 중인 사용자 이름입니다"),
-  email: z
-    .string()
-    .email("유효한 이메일 주소를 입력해주세요")
-    .toLowerCase()
-    .refine(checkUniqueEmail,"이미 등록된 이메일 주소입니다"),
-  password: z
-    .string({
-      required_error: "비밀번호를 입력하세요"
-    })
-    .min(PASSWORD_MIN_LENGTH, "비밀번호 확인은 최소 4자 이상이어야 합니다")
-    .regex(
-      PASSWORD_REGEX, PASSWORD_REGEX_ERROR
-    ),
-  passwordConfirm: z
-    .string({
-      required_error: "비밀번호 확인을 입력하세요"
-    })
-    .min(PASSWORD_MIN_LENGTH, "비밀번호 확인은 최소 4자 이상이어야 합니다")})
-    .superRefine(({ password, passwordConfirm }, ctx) => {
-      if (password !== passwordConfirm) {
-        ctx.addIssue({
-          code: "custom",
-          message: "비밀번호가 일치하지 않습니다",
-          path: ["passwordConfirm"],
-        });
+    if(user){
+      ctx.addIssue({
+        code:"custom",
+        message:"이 사용자 이름은 이미 사용 중입니다",
+        path: ["username"],
+        fatal: true,
+      })
+      return z.NEVER;
     }
-});
+  })
+  .superRefine(async({email}, ctx)=>{
+    const user = await db.user.findUnique({
+      where: {
+        email
+      },
+      select: {
+        id: true,
+      },
+    })
+    if(user){
+      ctx.addIssue({
+        code:"custom",
+        message:"이 이메일은 이미 사용 중입니다",
+        path: ["email"],
+        fatal: true,
+      })
+      return z.NEVER;
+    }
+  })
+  .refine(checkPasswords, {//refine은 superRefine 뒤에 있기 때문에 superRefine의 오류가 해결되지 않는한 오류가 안뜬다.
+    message: "Both passwords should be the same!",
+    path: ["passwordConfirm"],
+  })
 
 export async function joinForm(prevState: any, formData: FormData) {
   const data = {
