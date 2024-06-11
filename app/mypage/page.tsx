@@ -29,7 +29,7 @@ export default async function Mypage() {
     <div>
       <h1>{user?.username}님 회원가입을 완료했습니다!</h1>
       <form action={logOut}>
-        <button>Log out</button>
+        <button>로그아웃</button>
       </form>
     </div>
   );
