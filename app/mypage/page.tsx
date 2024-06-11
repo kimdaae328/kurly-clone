@@ -27,7 +27,7 @@ export default async function Mypage() {
   };
   return (
     <div>
-      <h1>"{user?.username}"님 회원가입을 완료했습니다!</h1>
+      <h1>{user?.username}님 회원가입을 완료했습니다!</h1>
       <form action={logOut}>
         <button>Log out</button>
       </form>
