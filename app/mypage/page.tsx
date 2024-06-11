@@ -1,6 +1,7 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { notFound, redirect } from "next/navigation";
+import { useRouter } from 'next/router';
 
 async function getUser() {
   const session = await getSession();
@@ -18,6 +19,20 @@ async function getUser() {
 }
 
 export default async function Mypage() {
+  const router = useRouter();
+
+  const deleteUser = async () => {
+    const response = await fetch('/api/deleteUser', {
+      method: 'POST',
+    });
+
+    if (response.ok) {
+      router.push('/');
+    } else {
+      console.error('Failed to delete user');
+    }
+  };
+
   const user = await getUser();
   const logOut = async () => {
     "use server";
@@ -27,10 +42,11 @@ export default async function Mypage() {
   };
   return (
     <div>
-      <h1>"{user?.username}"님 회원가입을 완료했습니다!</h1>
+      <h1>{user?.username}님 회원가입을 완료했습니다!</h1>
       <form action={logOut}>
-        <button>Log out</button>
+        <button>로그아웃</button>
       </form>
+      <button onClick={deleteUser}>회원 탈퇴</button>
     </div>
   );
 }
