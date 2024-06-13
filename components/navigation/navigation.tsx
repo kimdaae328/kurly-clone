@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../../styles/navigation/navigation.module.css';
@@ -9,11 +9,11 @@ export default function Navigation() {
     const [searchQuery, setSearchQuery] = useState('');
     const router = useRouter();
 
-    const handleSearchInputChange = (event) => {
+    const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
 
-    const handleSearch = (event) => {
+    const handleSearch = (event: FormEvent) => {
         event.preventDefault(); // 폼 제출의 기본 동작을 막습니다.
         if (searchQuery.trim()) {
             router.push(`/search?query=${searchQuery}`);
