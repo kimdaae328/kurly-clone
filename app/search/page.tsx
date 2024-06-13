@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import productData from '../../api/product.json';
 
@@ -15,7 +15,7 @@ interface Product {
     category: string;
 }
 
-export default function SearchPage() {
+function SearchResults() {
     const searchParams = useSearchParams();
     const query = searchParams.get('query') || '';
     const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
@@ -46,5 +46,13 @@ export default function SearchPage() {
                 <p>검색 결과가 없습니다.</p>
             )}
         </div>
+    );
+}
+
+export default function SearchPage() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <SearchResults />
+        </Suspense>
     );
 }
