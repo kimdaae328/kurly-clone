@@ -103,7 +103,7 @@ const formSchema = z
     }
   })
   .refine(checkPasswords, {//refine은 superRefine 뒤에 있기 때문에 superRefine의 오류가 해결되지 않는한 오류가 안뜬다.
-    message: "Both passwords should be the same!",
+    message: "비밀번호가 일치해야 합니다!",
     path: ["passwordConfirm"],
   })
 
