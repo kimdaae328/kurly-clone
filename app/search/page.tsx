@@ -4,10 +4,21 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import productData from '../../api/product.json';
 
+interface Product {
+    id: string;
+    name: string;
+    poster: string;
+    before: string;
+    sales: string;
+    price: string;
+    review: string;
+    category: string;
+}
+
 export default function SearchPage() {
     const searchParams = useSearchParams();
     const query = searchParams.get('query') || '';
-    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
 
     useEffect(() => {
         if (query) {

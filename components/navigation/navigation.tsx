@@ -13,7 +13,8 @@ export default function Navigation() {
         setSearchQuery(event.target.value);
     };
 
-    const handleSearch = () => {
+    const handleSearch = (event) => {
+        event.preventDefault(); // 폼 제출의 기본 동작을 막습니다.
         if (searchQuery.trim()) {
             router.push(`/search?query=${searchQuery}`);
         }
