@@ -3,6 +3,7 @@
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import productData from '../../api/product.json';
+import styles from '../../styles/search/search.module.css';
 
 interface Product {
     id: string;
@@ -30,8 +31,8 @@ function SearchResults() {
     }, [query]);
 
     return (
-        <div>
-            <h1>검색 결과</h1>
+        <div className={styles.productContent}>
+            <h2 className={styles.productTitle}><span>{query}</span>검색 결과</h2>
             {filteredProducts.length > 0 ? (
                 <ul>
                     {filteredProducts.map(product => (

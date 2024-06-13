@@ -1,0 +1,18 @@
+.productContent {}
+
+.productTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    font-size: 28px;
+}
+
+.productTitle {
+    margin-bottom: 50px;
+}
+
+.productTitle span {
+    font-weight: 500;
+    color: rgb(95, 0, 128);
+}

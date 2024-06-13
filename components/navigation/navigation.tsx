@@ -51,7 +51,9 @@ export default function Navigation() {
                             value={searchQuery}
                             onChange={handleSearchInputChange}
                         />
-                        <button onClick={handleSearch}>검색</button>
+                        <div className={styles.searchWrap}>
+                            <button onClick={handleSearch}>검색</button>
+                        </div>
                     </form>
 
                     <ul className={styles.menuItems}>

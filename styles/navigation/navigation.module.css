@@ -71,6 +71,19 @@
     border-radius: 6px;
 }
 
+.searchWrap {
+    position: relative;
+}
+
+.searchInput button {
+    position: absolute;
+    width: 50px;
+    height: 100%;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .menuItems {
     display: flex;
     align-items: center;
