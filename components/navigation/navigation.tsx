@@ -44,7 +44,7 @@ export default function Navigation() {
                         <Link href="/" className={styles.home}>마켓컬리</Link>
                     </div>
 
-                    <div className={styles.searchInput}>
+                    <form className={styles.searchInput} onSubmit={handleSearch}>
                         <input
                             type="text"
                             placeholder="검색어를 입력해주세요"
@@ -52,7 +52,7 @@ export default function Navigation() {
                             onChange={handleSearchInputChange}
                         />
                         <button onClick={handleSearch}>검색</button>
-                    </div>
+                    </form>
 
                     <ul className={styles.menuItems}>
                         <li>
