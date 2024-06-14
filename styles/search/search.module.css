@@ -16,3 +16,23 @@
     font-weight: 500;
     color: rgb(95, 0, 128);
 }
+
+.notataWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgb(181, 181, 181);
+}
+
+.searchIcon {
+    font-size: 55px;
+}
+
+.nodata {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.5;
+    color: rgb(181, 181, 181);
+}

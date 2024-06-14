@@ -2,6 +2,7 @@
 
 import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { CiSearch } from "react-icons/ci";
 import productData from '../../api/product.json';
 import styles from '../../styles/search/search.module.css';
 
@@ -44,7 +45,10 @@ function SearchResults() {
                     ))}
                 </ul>
             ) : (
-                <p>검색 결과가 없습니다.</p>
+                <div className={styles.notataWrap}>
+                    <CiSearch className={styles.searchIcon} />
+                    <p className={styles.nodata}>검색된 상품이 없습니다.<br/>다른 검색어를 입력해 주세요.</p>
+                </div>
             )}
         </div>
     );
