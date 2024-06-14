@@ -1,9 +1,9 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session";
-import { notFound, redirect } from "next/navigation";
+import { notFound } from "next/navigation";
 import Link from "next/link";
-import styles from "../../styles/mypage/mypage.module.css"
-
+import styles from "../../styles/mypage/mypage.module.css";
+import { logOut, deleteAccount } from "./actions";
 
 async function getUser() {
   const session = await getSession();
@@ -22,26 +22,6 @@ async function getUser() {
 
 export default async function Mypage() {
   const user = await getUser();
-  const logOut = async () => {
-    "use server";
-    const session = await getSession();
-    await session.destroy();
-    redirect("/");
-  };
-  
-  const deleteAccount = async () => {
-    "use server";
-    const session = await getSession();
-    if (session.id) {
-      await db.user.delete({
-        where: {
-          id: session.id,
-        },
-      });
-      await session.destroy();
-      redirect("/");
-    }
-  };
 
   return (
     <div className={styles.content}>
