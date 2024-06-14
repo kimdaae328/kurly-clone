@@ -77,6 +77,15 @@ export default function JoinPage() {
               errors={state?.fieldErrors.mobileNumber}
             />
           </div>
+          <div className={styles.joinItem}>
+            <label htmlFor="address">주소 <span className={styles.essential}>*</span></label>
+            <Input
+              name="address"
+              type="text"
+              placeholder="예)판교역로 235, 분당 주공, 삼평동 681"
+              required
+            />
+          </div>
           <button type="submit" className={styles.btnColor}>가입하기</button>
         </form>
       </div>

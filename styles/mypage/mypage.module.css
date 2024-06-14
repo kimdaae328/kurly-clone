@@ -1,10 +1,13 @@
+.content {
+    background-color: rgb(247, 247, 247);
+}
 .mypage {
     display: flex;
     align-items: flex-start;
     gap: 20px;
+    width: 1050px;
     margin: 0px auto;
     padding: 50px 0px 80px;
-    background-color: rgb(247, 247, 247);
 }
 
 .sidebar {

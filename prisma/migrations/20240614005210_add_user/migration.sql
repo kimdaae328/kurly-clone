@@ -5,6 +5,7 @@ CREATE TABLE "User" (
     "password" TEXT,
     "email" TEXT,
     "phone" TEXT,
+    "address" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
