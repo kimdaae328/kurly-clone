@@ -77,11 +77,15 @@
 }
 
 .searchInput button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     width: 50px;
     height: 100%;
     right: 0;
     top: 50%;
+    font-size: 18px;
     transform: translateY(-50%);
 }
 

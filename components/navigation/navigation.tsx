@@ -4,6 +4,7 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../../styles/navigation/navigation.module.css';
+import { IoSearch } from "react-icons/io5";
 
 export default function Navigation() {
     const [searchQuery, setSearchQuery] = useState('');
@@ -52,7 +53,7 @@ export default function Navigation() {
                             onChange={handleSearchInputChange}
                         />
                         <div className={styles.searchWrap}>
-                            <button onClick={handleSearch}>검색</button>
+                            <button onClick={handleSearch}><IoSearch /></button>
                         </div>
                     </form>
 
