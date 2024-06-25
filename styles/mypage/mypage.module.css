@@ -17,6 +17,8 @@
 
 .sideMenuList {
     margin-top: 20px;
+    padding: 26px 0 16px 20px;
+    border:1px solid red;
 }
 
 .sideMenuList button,

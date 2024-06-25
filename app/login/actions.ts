@@ -37,7 +37,7 @@ const formSchema = z.object({
 
 export async function loginForm(prevState: any, formData: FormData) {
     const data = {
-        username:formData.get("username"),
+        username: formData.get("username"),
         password: formData.get("password")
     }
     // redirect("/");

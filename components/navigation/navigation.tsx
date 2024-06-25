@@ -1,14 +1,31 @@
 'use client';
-
-import { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../../styles/navigation/navigation.module.css';
 import { IoSearch } from "react-icons/io5";
 
+async function fetchSession() {
+    const response = await fetch("/api/session");
+    if (response.ok) {
+      return response.json();
+      console.log("Session fetched: ", session);
+    }
+    return { loggedIn: false };
+}
+  
 export default function Navigation() {
     const [searchQuery, setSearchQuery] = useState('');
+    const [loggedIn, setLoggedIn] = useState(false);
     const router = useRouter();
+
+    useEffect(() => {
+        async function checkSession() {
+          const session = await fetchSession();
+          setLoggedIn(session.loggedIn);
+        }
+        checkSession();
+    }, []);
 
     const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
@@ -25,12 +42,27 @@ export default function Navigation() {
         <header className={styles.header}>
             <div className={styles.in}>
                 <ul className={styles.loginArea}>
-                    <li>
-                        <Link href="/join">회원가입</Link>
-                    </li>
-                    <li>
-                        <Link href="/login">로그인</Link>
-                    </li>
+                    {loggedIn ? (
+                        <>
+                            <li>
+                                <Link href="/mypage">마이페이지</Link>
+                            </li>
+                            <li>
+                                <form action="/api/logout" method="POST">
+                                    <button type="submit">로그아웃</button>
+                                </form>
+                            </li>
+                        </>
+                    ) : (
+                        <>
+                            <li>
+                                <Link href="/join">회원가입</Link>
+                            </li>
+                            <li>
+                                <Link href="/login">로그인</Link>
+                            </li>
+                        </>
+                    )}
                     <li>
                         <Link href="/customer">고객센터</Link>
                     </li>
