@@ -37,9 +37,10 @@ export default function BannerWrap() {
                 btnTitle="내용"
                 poster={item.poster}
                 before={parseInt(item.before)} // 문자열을 숫자로 변환
-  sales={parseInt(item.sales)} // 필요에 따라 다른 속성도 변환할 수 있습니다.
-  price={parseInt(item.price)}
-  review={parseInt(item.review)}
+                sales={parseInt(item.sales)} // 필요에 따라 다른 속성도 변환할 수 있습니다.
+                price={parseInt(item.price)}
+                review={parseInt(item.review)}
+                id={item.id}
               />
             </div>
           ))}
@@ -59,9 +60,10 @@ export default function BannerWrap() {
               btnTitle="내용"
               poster={item.poster}
               before={parseInt(item.before)} // 문자열을 숫자로 변환
-  sales={parseInt(item.sales)} // 필요에 따라 다른 속성도 변환할 수 있습니다.
-  price={parseInt(item.price)}
-  review={parseInt(item.review)}
+              sales={parseInt(item.sales)} // 필요에 따라 다른 속성도 변환할 수 있습니다.
+              price={parseInt(item.price)}
+              review={parseInt(item.review)}
+              id={item.id}
             />
           </div>
         ))}
