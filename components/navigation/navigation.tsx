@@ -4,45 +4,46 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from '../../styles/navigation/navigation.module.css';
 import { IoSearch } from "react-icons/io5";
-
-async function fetchSession() {
-    const response = await fetch("/api/session");
-    if (response.ok) {
-      return response.json();
-      console.log("Session fetched: ", session);
-    }
-    return { loggedIn: false };
-}
   
 export default function Navigation() {
     const [searchQuery, setSearchQuery] = useState('');
-    const [loggedIn, setLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const router = useRouter();
-
-    useEffect(() => {
-        async function checkSession() {
-          const session = await fetchSession();
-          setLoggedIn(session.loggedIn);
-        }
-        checkSession();
-    }, []);
 
     const handleSearchInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         setSearchQuery(event.target.value);
     };
 
     const handleSearch = (event: FormEvent) => {
-        event.preventDefault(); // 폼 제출의 기본 동작을 막습니다.
+        event.preventDefault();
         if (searchQuery.trim()) {
             router.push(`/search?query=${searchQuery}`);
         }
     };
 
+    useEffect(() => {
+        const checkLoginStatus = async () => {
+            try {
+                const response = await fetch('../../lib/checkLogin');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const result = await response.json();
+                console.log('로그인 상태 확인', result);
+                setIsLoggedIn(result.loggedIn);
+            } catch (error) {
+                console.error('로그인 상태 확인 오류:', error);
+            }
+        };
+
+        checkLoginStatus();
+    }, []);
+
     return (
         <header className={styles.header}>
             <div className={styles.in}>
                 <ul className={styles.loginArea}>
-                    {loggedIn ? (
+                {isLoggedIn ? (
                         <>
                             <li>
                                 <Link href="/mypage">마이페이지</Link>

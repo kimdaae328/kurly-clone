@@ -2,8 +2,6 @@
 import db from "@/lib/db";
 import getSession from "@/lib/session";
 import { redirect } from "next/navigation";
-import Link from "next/link";
-import styles from "../../styles/mypage/mypage.module.css";
 
 // 로그아웃
 export async function logOut() {

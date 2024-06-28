@@ -1,6 +1,5 @@
 import React from 'react'
 import styles from '../../styles/bannerItem/bannerItem.module.css'
-import Link from 'next/link';
 
 interface BannerItemProps {
   height: string;
@@ -11,12 +10,11 @@ interface BannerItemProps {
   sales: number;
   price: number;
   review: number;
-  id: string;
 }
 
-const BannerItem: React.FC<BannerItemProps> = ({ height, name, btnTitle, poster, before, sales, price, review, id }) => {
+const BannerItem: React.FC<BannerItemProps> = ({ height, name, btnTitle, poster, before, sales, price, review }) => {
   return (
-    <Link href={`/goods/${id}`}>
+    <div>
       <div className={styles.productImg} style={{ height }}>
         <img src={poster} alt={name} style={{ height: 'auto' }} />
       </div>
@@ -40,7 +38,7 @@ const BannerItem: React.FC<BannerItemProps> = ({ height, name, btnTitle, poster,
           </div>
         </div>
       </div>
-    </Link>
+    </div>
   )
 }
 
